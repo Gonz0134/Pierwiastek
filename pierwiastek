@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int liczba, j=0, reszta=0, dzielnik=0, dzielnik1=0;
+    int wynik[4]={0,0,0,0};
+    do{
+    cout << "Wprowadz liczbe, z ktorej chcesz otrzymac pierwiastek: ";
+    cin >> liczba;
+    }while(liczba<=0);
+
+        while (j * j < liczba) {
+        j = j + 1;
+    }
+    j = j - 1;
+
+    reszta = liczba - (j*j);
+    dzielnik = j*2;
+    dzielnik1 = j*2;
+    //cout << reszta;
+
+    if(liczba == (j+1)*(j+1)){
+        cout<<j+1<< ",";
+    }
+    else{
+    cout << j << ',';
+    for(int i=0;i<4;i++){
+            int temp;
+            reszta *= 100;
+            temp=reszta/dzielnik;
+        //SPRAWDZANIE LICZBY
+        while((dzielnik*10+temp)*temp > reszta){
+            temp--;
+        }
+        reszta-=(dzielnik*10+temp)*temp;
+       //DZIELNIK MNOZENIE
+        if(i==0){
+        dzielnik1 = (j*10+temp);}
+        else if (i>0){
+            dzielnik1 *= 10;
+            dzielnik1 += temp;
+        }
+        dzielnik = dzielnik1*2;
+        wynik[i]=temp;
+       // cout << "dzielnik to:" << dzielnik<< endl;
+    }
+}
+
+for(int i=0;i<4;i++){
+    cout << wynik[i];
+}
+
+
+    return 0;
+}
