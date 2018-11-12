@@ -22,7 +22,7 @@ int main()
     //cout << reszta;
 
     if(liczba == (j+1)*(j+1)){
-        cout<<j+1;
+        cout<<j+1<< ",";
     }
     else{
     cout << j << ',';
